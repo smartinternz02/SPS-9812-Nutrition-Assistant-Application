@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../static/css/values.css">    
+</head>
+<body>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+<br>
+    <img src="{{imgurl}}" alt="Paris" class="center" width="200" height="200">
+     
+<div class="msg">{{ 
+           query
+        }}
+<br>
+         {% for i in msg -%}
+         {{i}}
+           {%- endfor %}</div>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="mainpage">Home</a>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

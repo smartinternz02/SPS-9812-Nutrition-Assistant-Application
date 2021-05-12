@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../static/css/login.css">    
+</head>
+<body>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 class="active">Contact us</h2>
+   
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <h1>NUTRITION</h1>
+    </div>
+
+    <!-- Login Form -->
+    <form action="/contactus" method="post">
+      <input type="text" id="username" class="fadeIn second" name="username" placeholder="username">
+      <input type="text" id="email" class="fadeIn third" name="email" placeholder="Email">
+      <textarea id="msg" class="fadeIn third" name="message" rows="10" cols="50" placeholder="Type Your Message"></textarea>
+<br>  <br>
+
+      <input type="submit" class="fadeIn fifth" value="SUBMIT">
+    </form>
+   {{msg}}
+   <br>
+<br>
+ <div id="formFooter">
+      <a class="underlineHover" href="../">Home</a>
+    </div>
+ 
+</div>
+</body>
+</html>
