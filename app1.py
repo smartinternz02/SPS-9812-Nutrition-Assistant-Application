@@ -10,8 +10,8 @@ import json
 from ibm_watson import VisualRecognitionV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 import wolframalpha
-client=wolframalpha.Client('2RY8XK-X3A6YWV3AK')
-authenticator = IAMAuthenticator('2A6BucKErMHbNpKGwdyGMBTsAZYxRYmm8Rxr0chzTvfm')
+client=wolframalpha.Client(API_KEY)
+authenticator = IAMAuthenticator(API_KEY)
 
 visual_recognition = VisualRecognitionV3(
     version='2018-03-19',
@@ -19,10 +19,10 @@ visual_recognition = VisualRecognitionV3(
 
 app = Flask(__name__)
 app.secret_key = 'a' 
-app.config['MYSQL_HOST'] = 'remotemysql.com'
-app.config['MYSQL_USER'] = 'TvbLPsLYdb'
-app.config['MYSQL_PASSWORD'] = 'RuurtUM1b3'
-app.config['MYSQL_DB'] = 'TvbLPsLYdb'
+app.config['MYSQL_HOST'] = ''
+app.config['MYSQL_USER'] = ''
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = ''
 mysql = MySQL(app)
 @app.route('/')
 def intro():
@@ -51,15 +51,15 @@ def signup():
             body=" Hello {} \n\n Welcome to Nutrition. We're thrilled to see you here!\n We're confident that Nutrition Assist will help you find right diet \n stay Healthy\n Best\n Nutrition".format(username)
             subject="Nutrition Assist"
             message=MIMEMultipart()
-            message['From']="nutritionassist00@gmail.com"
+            message['From']=""
             message['To']=email
             message['subject']=subject
             message.attach(MIMEText(body,'plain'))
             text=message.as_string()
             mail=smtplib.SMTP('smtp.gmail.com', 587)
             mail.starttls()
-            mail.login("nutritionassist00@gmail.com","hound@123")
-            mail.sendmail("nutritionassist00@gmail.com",email,text)
+            mail.login("")
+            mail.sendmail("",email,text)
             mail.close()
     elif request.method == 'POST':
         msg = 'Please fill out the form !'
@@ -101,15 +101,15 @@ def contactus():
         body=" Hello  Nutrition.\n\n {}".format(messages)
         subject=email
         message=MIMEMultipart()
-        message['From']="nutritionassist00@gmail.com"
-        message['To']="nutritionassist00@gmail.com"
+        message['From']=""
+        message['To']=""
         message['subject']=subject
         message.attach(MIMEText(body,'plain'))
         text=message.as_string()
         mail=smtplib.SMTP('smtp.gmail.com', 587)
         mail.starttls()
-        mail.login("nutritionassist00@gmail.com","hound@123")
-        mail.sendmail("nutritionassist00@gmail.com",email,text)
+        mail.login("")
+        mail.sendmail("",email,text)
         mail.close()
         msg="We will contact you soon"
     return render_template('contactus.html',msg=msg)
